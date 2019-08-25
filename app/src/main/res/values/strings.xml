@@ -1,0 +1,127 @@
+<resources>
+    <string name="app_name">Coffee Time Admon</string>
+
+    <!-- ##################################################### Teclado #######-->
+    <string name="st_Tecla_0">0</string>
+    <string name="st_Tecla_1">1</string>
+    <string name="st_Tecla_2">2</string>
+    <string name="st_Tecla_3">3</string>
+    <string name="st_Tecla_4">4</string>
+    <string name="st_Tecla_5">5</string>
+    <string name="st_Tecla_6">6</string>
+    <string name="st_Tecla_7">7</string>
+    <string name="st_Tecla_8">8</string>
+    <string name="st_Tecla_9">9</string>
+    <string name="st_Tecla_000">000</string>
+    <string name="st_Tecla_10">10</string>
+    <string name="st_Tecla_20">20</string>
+    <string name="st_Tecla_25">25</string>
+    <string name="st_Tecla_50">50</string>
+    <string name="st_Borrar">BORRAR</string>
+    <string name="st_Entrar">ENTRAR</string>
+
+    <!-- ##################################################### PÁGINA PRINCIPAL #######-->
+    <string name="sp_Administración">ADMINISTRACIÓN</string>
+    <string name="sp_CierreActividades">CIERRES</string>
+    <string name="sp_EntregaInsumos">ENTREGAR INSUMOS</string>
+
+    <!-- ##################################################### PÁGINA ADMINISTRACIÓN #######-->
+    <string name="sa_Distribuidores">DISTRIBUIDORES</string>
+    <string name="sa_Nombre">Nombre:</string>
+    <string name="sa_Celular">Celular:</string>
+    <string name="sa_DeudaActual">Deuda Actual:</string>
+    <string name="sa_Ahorro">Ahorro:</string>
+    <string name="sa_TazasActual">Tazas Acumuladas:</string>
+
+    <string name="sa_TituloNombre">Nombre</string>
+    <string name="sa_TituloCelular">Cel</string>
+    <string name="sa_TituloDeuda">Deuda</string>
+    <string name="sa_TituloAhorro">Ahorro</string>
+    <string name="sa_TituloTazasActual">Tz</string>
+
+    <string name="sa_CrearDistribuidor">Crear Distribuidor</string>
+    <string name="sa_EliminarDistribuidor">Eliminar</string>
+
+
+    <string name="sa_Productos">PRODUCTOS</string>
+    <string name="sa_ItemProducto">Item:</string>
+    <string name="sa_NombreProducto">Nombre:</string>
+    <string name="sa_PrecioProducto">Precio:</string>
+    <string name="sa_ComisiónProducto">Comisión:</string>
+    <string name="sa_CostoProducto">Costo:</string>
+    <string name="sa_CantidadProducto">Cantidad:</string>
+
+    <string name="sa_TituloItemProducto">Item</string>
+    <string name="sa_TituloNombreProducto">Nombre</string>
+    <string name="sa_TituloPrecioProducto">Precio</string>
+    <string name="sa_TituloComisiónProducto">Comisión</string>
+    <string name="sa_TituloCostoProducto">Costo</string>
+    <string name="sa_TituloCantidadProducto">Cant</string>
+
+    <string name="sa_CrearProducto">Crear Producto</string>
+    <string name="sa_EliminarProducto">Eliminar</string>
+
+    <!-- ##################################################### ENTREGA DE INSUMOS #######-->
+    <string name="se_TituloDistribuidores">DISTRIBUIDORES</string>
+    <string name="se_InsumosEntrega">INSUMOS</string>
+    <string name="se_Entregados">RESUMEN ENTREGA</string>
+    <string name="se_InsumosPara">Insumos para:</string>
+
+
+    <string name="se_AromáticaPanela">A.PANELA x25</string>
+    <string name="se_Instacrem">INSTACREM x10</string>
+    <string name="se_Mantecada">MANTECADA x1</string>
+    <string name="se_Liberal">LIBERAL x1</string>
+    <string name="se_Almojabana">ALMOJABANA x1</string>
+    <string name="se_Arepa">AREPA x1</string>
+    <string name="se_Mustang">MUSTANG x1</string>
+    <string name="se_Lucky">LUCKY x1</string>
+
+    <string name="se_Enviar">ENVIAR Y GUARDAR</string>
+
+
+    <!-- ##################################################### CIERRES #######-->
+    <string name="sc_EntregaDía">MEDIO DÍA</string>
+    <string name="sc_EntregaNoche">NOCHE</string>
+    <string name="sc_EntregaAdicional">DINERO ADICIONAL</string>
+
+    <!-- ##################################################### REGISTRO NOCHE #######-->
+    <string name="sn_Tazas">TAZAS</string>
+    <string name="sn_EntregaTazas">ENT.:</string>
+    <string name="sn_DevuelveTazas">DEV.:</string>
+
+    <string name="sn_DineroEntregado">ENTREGA DE DINERO</string>
+    <string name="sn_Borrar">BORRAR</string>
+    <string name="sn_Distribuidor">DISTRIBUIDOR</string>
+    <string name="sn_Enviar">ENVIAR Y GUARDAR</string>
+
+
+    <!-- ##################################################### REGISTRO MEDIO DIA #######-->
+    <string name="sd_TituloEnt">ENT</string>
+    <string name="sd_TituloDev">DEV</string>
+    <string name="sd_TituloVen">VEN</string>
+
+    <string name="sd_Distribuidor">Distribuidor</string>
+    <string name="sd_AbrirPendiente">Abrir Pendiente</string>
+
+    <string name="sd_Vasos1">Vasos 1</string>
+    <string name="sd_Vasos2">Vasos 2</string>
+    <string name="sd_Vasos3">Vasos 3</string>
+    <string name="sd_ArPanela">A.Panela</string>
+    <string name="sd_ArHaibel">A.Haibel</string>
+    <string name="sd_Instacrem">Instacrem</string>
+    <string name="sd_Mantecada">Mante.</string>
+    <string name="sd_Liberal">Libe.</string>
+    <string name="sd_Almojabana">Almo.</string>
+    <string name="sd_Arepa">Arepa</string>
+
+    <string name="sd_EntragaNoche">E.Noche</string>
+    <string name="sd_EntregaDía">E.Día</string>
+    <string name="sd_EntregaAdicional">E.Adic.</string>
+
+    <string name="sd_Borrar">BORRAR</string>
+    <string name="sd_Temporal">TEMPORAL</string>
+    <string name="sd_Cierre">CERRAR</string>
+
+
+</resources>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "170857706486",
+    "firebase_url": "https://coffeetimeadmon.firebaseio.com",
+    "project_id": "coffeetimeadmon",
+    "storage_bucket": "coffeetimeadmon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170857706486:android:4ca8b2e58a7e8f9c",
+        "android_client_info": {
+          "package_name": "com.example.coffeetimeadmon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "170857706486-7bsstode4fd1c0idcaqbq7sgjnhd2vnv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.coffeetimeadmon",
+            "certificate_hash": "c1b5d7186ec7de0159fba977f99541efafd89be5"
+          }
+        },
+        {
+          "client_id": "170857706486-mjs5ofqsu3tctsv9t2k4djr0i69ncmnr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMa6eUPFcI-oNQ6GWK0cSgBrNZSEY7UOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "170857706486-mjs5ofqsu3tctsv9t2k4djr0i69ncmnr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

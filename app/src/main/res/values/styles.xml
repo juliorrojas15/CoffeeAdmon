@@ -1,0 +1,127 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- ####################################################### Botones ###########-->
+    <style name="sty_BotonTeclado">
+        <item name="android:visibility">visible</item>
+        <item name="android:background">@drawable/boton_teclado</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:textColor">@color/Negro</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">60dp</item>
+    </style>
+
+    <style name="sty_BotonMenu">
+        <item name="android:visibility">visible</item>
+        <item name="android:background">@drawable/boton_teclado</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textColor">@color/RojoCoffee</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="sty_BotonProductos">
+        <item name="android:visibility">visible</item>
+        <item name="android:background">@drawable/boton_teclado</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textColor">@color/RojoCoffee</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="sty_BotonVerde">
+        <item name="android:visibility">visible</item>
+        <item name="android:background">@drawable/boton_verde</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textColor">@color/Negro</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="sty_BotonAmarillo">
+        <item name="android:visibility">visible</item>
+        <item name="android:background">@drawable/boton_amarillo</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textColor">@color/Negro</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="sty_BotonAzul">
+        <item name="android:visibility">visible</item>
+        <item name="android:background">@drawable/boton_azul</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textColor">@color/Blanco</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="sty_BotonRojo">
+        <item name="android:visibility">visible</item>
+        <item name="android:background">@drawable/boton_rojo</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textColor">@color/Blanco</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="sty_BotonGris">
+        <item name="android:visibility">visible</item>
+        <item name="android:background">@drawable/boton_gris</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textColor">@color/Negro</item>
+        <item name="android:textSize">40sp</item>
+    </style>
+
+    <style name="sty_Insumos">
+        <item name="android:background">@drawable/boton_imagen</item>
+        <item name="android:visibility">visible</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_width">105dp</item>
+        <item name="android:layout_height">105dp</item>
+
+    </style>
+
+
+    <!-- ####################################################### TEXTOS ###########-->
+    <style name="sty_TextoProductos">
+
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/Negro</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="sty_TextoColumnas">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/Negro</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="sty_TextoListView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textColor">@color/Negro</item>
+    </style>
+
+    <style name="sty_TextoInsumosEntrega">
+        <item name="android:text">0</item>
+        <item name="android:layout_width">105dp</item>
+        <item name="android:layout_height">105dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">50dp</item>
+        <item name="android:textColor">@color/RojoCoffee</item>
+    </style>
+
+
+
+</resources>

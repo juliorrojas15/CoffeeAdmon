@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityCierres">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="50dp">
+
+        <Button
+            android:id="@+id/bEntregaDia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/sty_BotonMenu"
+            android:text="@string/sc_EntregaDía"/>
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+        <Button
+            android:id="@+id/bEntregaNoche"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/sty_BotonMenu"
+            android:text="@string/sc_EntregaNoche"/>
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+        <Button
+            android:id="@+id/bEntregaAdicional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/sty_BotonMenu"
+            android:text="@string/sc_EntregaAdicional"/>
+
+    </LinearLayout>
+</LinearLayout>

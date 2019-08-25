@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5.5">
+        <TextView
+            android:id="@+id/lv_Crear_Producto_Item"
+            style="@style/sty_TextoListView"
+            android:layout_weight="0.5"
+            android:textAlignment="textStart"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/lv_Crear_Producto_Nombre"
+            style="@style/sty_TextoListView"
+            android:layout_weight="1.5"
+            android:textAlignment="textStart"
+            android:textSize="18sp"/>
+        <TextView
+            android:id="@+id/lv_Crear_Producto_Precio"
+            style="@style/sty_TextoListView"
+            android:layout_weight="1"
+            android:textAlignment="textStart"
+            android:textSize="18sp"/>
+        <TextView
+            android:id="@+id/lv_Crear_Producto_Comision"
+            style="@style/sty_TextoListView"
+            android:layout_weight="1"
+            android:textAlignment="textStart"
+            android:textSize="18sp"/>
+        <TextView
+            android:id="@+id/lv_Crear_Producto_Costo"
+            style="@style/sty_TextoListView"
+            android:layout_weight="1"
+            android:textAlignment="textStart"
+            android:textSize="18sp"/>
+        <TextView
+            android:id="@+id/lv_Crear_Producto_Cantidad"
+            style="@style/sty_TextoListView"
+            android:layout_weight="0.5"
+            android:textAlignment="textStart"
+            android:textSize="18sp"/>
+    </LinearLayout>
+</LinearLayout>
