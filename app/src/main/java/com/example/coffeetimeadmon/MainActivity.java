@@ -29,7 +29,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume(){
         super.onResume();
+
+        obInforme.setVisibility(View.INVISIBLE);
         obAdministracion.setVisibility(View.INVISIBLE);
+        obNomina.setVisibility(View.INVISIBLE);
+        obCaja.setVisibility(View.INVISIBLE);
         obCierres.setVisibility(View.INVISIBLE);
         obEntregarInsumos.setVisibility(View.INVISIBLE);
         iClaveIngresada=0;
@@ -45,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //#########################################################################################     //Keys de la base de datos
 
     //#########################################################################################     //Objetos del Layout
-    Button obAdministracion,obCierres,obEntregarInsumos;
+    Button obInforme,obAdministracion,obNomina, obCaja, obCierres,obEntregarInsumos,ob;
     Button obTecla_0,obTecla_1,obTecla_2,obTecla_3,obTecla_4,obTecla_5,obTecla_6,obTecla_7,
             obTecla_8,obTecla_9;
     Button obTecla_Borrar,obTecla_Entrar;
@@ -66,7 +70,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         //#####################################################################################     Relación de objetos con Layout
+        obInforme=(Button)findViewById(R.id.bInforme);
         obAdministracion=(Button)findViewById(R.id.bAdministracion);
+        obNomina=(Button)findViewById(R.id.bNomina);
+        obCaja=(Button)findViewById(R.id.bCaja);
         obCierres=(Button)findViewById(R.id.bCierres);
         obEntregarInsumos=(Button)findViewById(R.id.bEntregarInsumos);
         obTecla_0=(Button)findViewById(R.id.bTecla_0);
@@ -95,7 +102,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         otvClave=(TextView)findViewById(R.id.tvClave);
         //##################################################################################         Acciones iniciales
+        obInforme.setVisibility(View.INVISIBLE);
         obAdministracion.setVisibility(View.INVISIBLE);
+        obNomina.setVisibility(View.INVISIBLE);
+        obCaja.setVisibility(View.INVISIBLE);
         obCierres.setVisibility(View.INVISIBLE);
         obEntregarInsumos.setVisibility(View.INVISIBLE);
         obTecla_Entrar.setVisibility(View.INVISIBLE);
@@ -128,6 +138,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         //##################################################################################         Acciones de botones
+        obInforme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Destino=new Intent(MainActivity.this,ActivityInforme.class);
+                startActivity(Destino);
+            }
+        });
         obAdministracion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,6 +152,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(Destino);
             }
         });
+        obNomina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Destino=new Intent(MainActivity.this,ActivityNomina.class);
+                startActivity(Destino);
+            }
+        });
+        obCaja.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Destino=new Intent(MainActivity.this,ActivityCaja.class);
+                startActivity(Destino);
+            }
+        });
+
         obCierres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,7 +191,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 otvClave.setText("----");
                 iClaveIngresada=0;
+
+                obInforme.setVisibility(View.INVISIBLE);
                 obAdministracion.setVisibility(View.INVISIBLE);
+                obNomina.setVisibility(View.INVISIBLE);
+                obCaja.setVisibility(View.INVISIBLE);
                 obCierres.setVisibility(View.INVISIBLE);
                 obEntregarInsumos.setVisibility(View.INVISIBLE);
             }
@@ -205,7 +241,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 sPersonal=listItemsPersonal.get(i).getsNombre();
                 sPerfil=listItemsPersonal.get(i).getsPerfil();
                 if (sPerfil.equals("Administrador")) {
+                    obInforme.setVisibility(View.VISIBLE);
                     obAdministracion.setVisibility(View.VISIBLE);
+                    obNomina.setVisibility(View.VISIBLE);
+                    obCaja.setVisibility(View.VISIBLE);
                 }
                 obCierres.setVisibility(View.VISIBLE);
                 obEntregarInsumos.setVisibility(View.VISIBLE);

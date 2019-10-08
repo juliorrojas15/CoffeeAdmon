@@ -205,7 +205,8 @@ public class ActivityAdmon extends AppCompatActivity {
                         oDistribuidorSeleccionado.getiEntTazas(),
                         oDistribuidorSeleccionado.getiDevTazas(),
                         oDistribuidorSeleccionado.getiEntDinero(),
-                        oDistribuidorSeleccionado.getsCierreAbierto());
+                        oDistribuidorSeleccionado.getsCierreAbierto(),
+                        oDistribuidorSeleccionado.getsUltimoCierre());
                 otvEliminarDistribuidor.setText("Eliminar a "+listItemsDistribuidor.getsNombre()+"?");
                 obEliminarDistribuidor.setVisibility(View.VISIBLE);
             }
@@ -256,7 +257,7 @@ public class ActivityAdmon extends AppCompatActivity {
         Long lCelularDistribuidor = Long.parseLong(sCelularDistribuidor);
         //Mensaje
         final ProgressDialog progressDialog=new ProgressDialog(ActivityAdmon.this);
-        progressDialog.setMessage("Creando Distriuidor");
+        progressDialog.setMessage("Creando Distribuidor");
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
 
@@ -282,11 +283,16 @@ public class ActivityAdmon extends AppCompatActivity {
         bd_GuardarPersonal.put("Dev Tazas",0);
         bd_GuardarPersonal.put("Ent Dinero",0);
         bd_GuardarPersonal.put("Cierre Abierto","");
+        bd_GuardarPersonal.put("Ultimo Cierre","");
+
 
         bd_NuevoPersonal.set(bd_GuardarPersonal).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(ActivityAdmon.this,"Distribuidor creado satisfactoriamente",Toast.LENGTH_SHORT).show();
+                for (int i=alDistribuidores.size()-1;i>=0;i--){
+                    alDistribuidores.remove(i);
+                }
                 fActualizar_LV_Distribuidores();
                 oetNombreDistribuidor.setText("");
                 oetCelularDistribuidor.setText("");
@@ -304,7 +310,7 @@ public class ActivityAdmon extends AppCompatActivity {
     void fActualizar_LV_Distribuidores(){
         String sPath = "Usuarios/juliorrojas15@gmail.com/Tiendas/Cra.21/Distribuidores";
         CollectionReference bd_Datos= FirebaseFirestore.getInstance().collection(sPath);
-        final int[][] iOrden = {new int[17]};
+        final int[][] iOrden = {new int[18]};
         bd_Datos.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -337,7 +343,8 @@ public class ActivityAdmon extends AppCompatActivity {
                                 Integer.parseInt(listSet.get(iOrden[0][13]).toString()),
                                 Integer.parseInt(listSet.get(iOrden[0][14]).toString()),
                                 Integer.parseInt(listSet.get(iOrden[0][15]).toString()),
-                                listSet.get(iOrden[0][16]).toString());
+                                listSet.get(iOrden[0][16]).toString(),
+                                listSet.get(iOrden[0][17]).toString());
                         alDistribuidores.add(listItemsDistribuidor);
                     }
                     myAdapterDistribuidor = new Distribuidor_Adaptador_Crear(ActivityAdmon.this, alDistribuidores);
@@ -374,6 +381,7 @@ public class ActivityAdmon extends AppCompatActivity {
                 case "Dev Tazas":iOrden[14]=i;break;
                 case "Ent Dinero":iOrden[15]=i;break;
                 case "Cierre Abierto":iOrden[16]=i;break;
+                case "Ultimo Cierre":iOrden[17]=i;break;
             }
         }
         return iOrden;

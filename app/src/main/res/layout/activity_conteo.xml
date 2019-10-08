@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityConteo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="20dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:columnCount="3"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_50_N"/>
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/b50_N"
+                    style="@style/sty_BotonGrisConteo" />
+                <TextView
+                    android:id="@+id/tv50_N"
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_0"/>
+                <TextView
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_50_V"/>
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/b50_V"
+                    style="@style/sty_BotonGrisConteo" />
+                <TextView
+                    android:id="@+id/tv50_V"
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_0"/>
+                <TextView
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_100_N"/>
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/b100_N"
+                    style="@style/sty_BotonGrisConteo" />
+                <TextView
+                    android:id="@+id/tv100_N"
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_0"/>
+                <TextView
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_100_V"/>
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/b100_V"
+                    style="@style/sty_BotonGrisConteo" />
+                <TextView
+                    android:id="@+id/tv100_V"
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_0"/>
+                <TextView
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_200_N"/>
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/b200_N"
+                    style="@style/sty_BotonGrisConteo" />
+                <TextView
+                    android:id="@+id/tv200_N"
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_0"/>
+
+
+                <TextView
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_200_V"/>
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/b200_V"
+                    style="@style/sty_BotonGrisConteo" />
+                <TextView
+                    android:id="@+id/tv200_V"
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_0"/>
+
+                <TextView
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_500"/>
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/b500"
+                    style="@style/sty_BotonGrisConteo" />
+                <TextView
+                    android:id="@+id/tv500"
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_0"/>
+
+                <TextView
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_1000"/>
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/b1000"
+                    style="@style/sty_BotonGrisConteo" />
+                <TextView
+                    android:id="@+id/tv1000"
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_0"/>
+
+            </GridLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/tvMonedas"
+                android:textSize="24sp"
+                android:textColor="@color/Negro"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:text="@string/sc_0"/>
+        </LinearLayout>
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:columnCount="3"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_1000"/>
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/b1000b"
+                    style="@style/sty_BotonGrisConteo" />
+                <TextView
+                    android:id="@+id/tv1000b"
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_0"/>
+
+                <TextView
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_2000"/>
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/b2000"
+                    style="@style/sty_BotonGrisConteo" />
+                <TextView
+                    android:id="@+id/tv2000"
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_0"/>
+
+                <TextView
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_5000"/>
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/b5000"
+                    style="@style/sty_BotonGrisConteo" />
+                <TextView
+                    android:id="@+id/tv5000"
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_0"/>
+
+                <TextView
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_10000"/>
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/b10000"
+                    style="@style/sty_BotonGrisConteo" />
+                <TextView
+                    android:id="@+id/tv10000"
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_0"/>
+
+                <TextView
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_20000"/>
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/b20000"
+                    style="@style/sty_BotonGrisConteo" />
+                <TextView
+                    android:id="@+id/tv20000"
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_0"/>
+
+
+                <TextView
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_50000"/>
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/b50000"
+                    style="@style/sty_BotonGrisConteo" />
+                <TextView
+                    android:id="@+id/tv50000"
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_0"/>
+
+                <TextView
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_100000"/>
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/b100000"
+                    style="@style/sty_BotonGrisConteo" />
+                <TextView
+                    android:id="@+id/tv100000"
+                    style="@style/sty_TextoConteo"
+                    android:text="@string/sc_0"/>
+
+
+            </GridLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/tvBilletes"
+                android:textSize="24sp"
+                android:textColor="@color/Negro"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:text="@string/sc_0"/>
+
+            <Button
+                android:id="@+id/bBorrarTodo"
+                style="@style/sty_BotonRojo"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:text="@string/sd_BorrarTodo"
+                android:textSize="24sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
+            <GridLayout
+                android:id="@+id/glTeclado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:columnCount="4"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bTecla_7"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_7" />
+
+                <Button
+                    android:id="@+id/bTecla_8"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_8" />
+
+                <Button
+                    android:id="@+id/bTecla_9"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_9" />
+                <Button
+                    android:id="@+id/bTecla_10"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_10" />
+                <Button
+                    android:id="@+id/bTecla_4"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_4" />
+
+                <Button
+                    android:id="@+id/bTecla_5"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_5" />
+
+                <Button
+                    android:id="@+id/bTecla_6"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_6" />
+                <Button
+                    android:id="@+id/bTecla_20"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_20" />
+                <Button
+                    android:id="@+id/bTecla_1"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_1" />
+
+                <Button
+                    android:id="@+id/bTecla_2"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_2" />
+
+                <Button
+                    android:id="@+id/bTecla_3"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_3" />
+                <Button
+                    android:id="@+id/bTecla_25"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_25" />
+                <Button
+                    android:id="@+id/bTecla_0"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_0" />
+                <android.support.v4.widget.Space />
+                <Button
+                    android:id="@+id/bTecla_000"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_000" />
+                <Button
+                    android:id="@+id/bTecla_50"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_50" />
+
+            </GridLayout>
+            <android.support.v4.widget.Space
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:textAlignment="center"
+                android:textColor="@color/Negro"
+                android:textSize="18sp"
+                android:text="@string/sc_DineroContado"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/tvDineroContado"
+                android:textSize="32sp"
+                android:textColor="@color/VerdeBorde"
+                android:textAlignment="center"
+                android:gravity="center_vertical"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:textAlignment="center"
+                android:textColor="@color/Negro"
+                android:textSize="18sp"
+                android:text="@string/sc_DineroSistema"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/tvDineroSistema"
+                android:textSize="32sp"
+                android:textColor="@color/AzulRelleno"
+                android:textAlignment="center"
+                android:gravity="center_vertical"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:textAlignment="center"
+                android:textColor="@color/Negro"
+                android:textSize="18sp"
+                android:text="@string/sc_DineroDiferencia"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/tvDineroDiferencia"
+                android:textSize="32sp"
+                android:textColor="@color/Negro"
+                android:textAlignment="center"
+                android:gravity="center_vertical"/>
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityEntregaNoche">
+    tools:context=".ActivityNomina">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,32 +14,29 @@
         android:orientation="horizontal"
         android:weightSum="10">
 
-
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:orientation="vertical"
             android:weightSum="10"
             android:layout_margin="5dp">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:layout_weight="2.5"
                 android:textAlignment="center"
                 android:textColor="@color/AzulBorde"
-                android:textSize="50sp"
-                android:text="@string/sc_EntregaNoche"/>
+                android:textSize="34sp"
+                android:text="@string/sn_Nomina"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:gravity="bottom"
-                android:layout_weight="1"
                 android:textAlignment="center"
                 android:textColor="@color/Negro"
-                android:textSize="30sp"
+                android:textSize="18sp"
                 android:text="@string/sn_Distribuidor"/>
             <TextView
                 android:id="@+id/tvDistribuidorSeleccionado"
@@ -50,101 +46,165 @@
                 android:layout_weight="1.5"
                 android:textAlignment="center"
                 android:textColor="@color/RojoCoffee"
-                android:textSize="34sp" />
+                android:textSize="24sp" />
 
             <ListView
                 android:id="@+id/lvDistribuidores"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="5"
+                android:layout_weight="6"
                 android:background="@drawable/lv_distribuidores"></ListView>
 
-
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+            <Button
+                android:id="@+id/bBorrarTodo"
+                style="@style/sty_BotonRojo"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:text="@string/sd_BorrarTodo"
+                android:textSize="18sp"/>
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_weight="3.5"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:orientation="horizontal"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:text="@string/sn_Fecha"
+                    android:textAlignment="center"
+                    android:textColor="@color/Negro"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="@string/sn_Tazas"
+                    android:textAlignment="center"
+                    android:textColor="@color/Negro"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:text="@string/sn_Comision"
+                    android:textAlignment="center"
+                    android:textColor="@color/Negro"/>
+
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/lvCierres"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="9">
+
+            </ListView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
             android:orientation="vertical"
-            android:weightSum="10"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical">
-
+            android:background="@color/BeigeCoffee"
+            android:layout_margin="5dp"
+            android:weightSum="12">
+            <TextView
+                style="@style/sty_TextoDineroDia"
+                android:text="@string/sn_SubTotal"/>
+            <TextView
+                android:id="@+id/tvSubTotal"
+                style="@style/sty_TextoTotalesDia"/>
+            <TextView
+                style="@style/sty_TextoDineroDia"
+                android:text="@string/sn_Deuda"/>
+            <TextView
+                android:id="@+id/tvDeuda"
+                style="@style/sty_TextoTotalesDia"/>
+            <TextView
+                style="@style/sty_TextoDineroDia"
+                android:text="@string/sn_Prestamos"/>
+            <TextView
+                android:id="@+id/tvPrestamos"
+                style="@style/sty_TextoTotalesDia"/>
+            <TextView
+                style="@style/sty_TextoDineroDia"
+                android:text="@string/sn_CoffeeExpress"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.3"
+                android:id="@+id/bCoffeeExpress"
+                style="@style/sty_BotonGrisProductosDia"/>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Negro"
-                android:textAlignment="center"
-                android:gravity="center_vertical"
-                android:textSize="22sp"
-                android:text="@string/sn_EntregaTazas"/>
+                style="@style/sty_TextoDineroDia"
+                android:text="@string/sn_Descuentos"/>
             <Button
-                android:id="@+id/bEntregaTazas"
-                style="@style/sty_BotonGris"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Negro"
-                android:textAlignment="center"
-                android:gravity="center_vertical"
-                android:textSize="22sp"
-                android:text="@string/sn_DevuelveTazas"/>
-            <Button
-                android:id="@+id/bDevuelveTazas"
-                style="@style/sty_BotonGris"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
-
+                android:layout_weight="1.3"
+                android:id="@+id/bDescuentos"
+                style="@style/sty_BotonGrisProductosDia"/>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/Negro"
-                android:textAlignment="center"
-                android:gravity="center_vertical"
-                android:textSize="22sp"
-                android:text="@string/sn_DineroEntregado"/>
+                style="@style/sty_TextoDineroDia"
+                android:text="@string/sn_Bonificaciones"/>
             <Button
-                android:id="@+id/bDinero"
-                style="@style/sty_BotonGris"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1.3"
+                android:id="@+id/bBonificaciones"
+                style="@style/sty_BotonGrisProductosDia"/>
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="3"/>
+                android:layout_weight="1"/>
+            <TextView
+                style="@style/sty_TextoDineroDia"
+                android:text="@string/sn_TotalPago"/>
+            <TextView
+                android:id="@+id/tvTotalPago"
+                style="@style/sty_TextoTotalesDia"/>
+
+            <TextView
+                style="@style/sty_TextoDineroDia"
+                android:text="@string/sn_PromedioTz"/>
+            <TextView
+                android:id="@+id/tvPromedioTz"
+                style="@style/sty_TextoTotalesDia"/>
+
 
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:gravity="center_horizontal"
-            android:layout_gravity="center_vertical"
             android:orientation="vertical"
-            android:weightSum="10"
-            android:layout_margin="20dp">
-
+            android:weightSum="10">
             <GridLayout
                 android:id="@+id/glTeclado"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginLeft="20dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="6"
                 android:columnCount="3"
-                android:orientation="horizontal"
-                android:layout_marginLeft="40dp">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/bTecla_7"
@@ -201,32 +261,36 @@
                     style="@style/sty_BotonTecladoAdicional"
                     android:text="@string/st_Tecla_000" />
 
-            </GridLayout>
 
+            </GridLayout>
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="30dp" />
             <Button
-                android:id="@+id/bBorrar"
+                android:id="@+id/bBorrarUno"
                 style="@style/sty_BotonAmarillo"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:textAlignment="center"
                 android:gravity="center_vertical"
-                android:text="@string/sd_BorrarTodo"/>
+                android:text="@string/sd_BorrarUno"
+                android:textSize="18sp"/>
+
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="30dp" />
+
+
             <Button
-                android:id="@+id/bCerrar"
+                android:id="@+id/bPagar"
                 style="@style/sty_BotonVerde"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:textAlignment="center"
                 android:gravity="center_vertical"
-                android:text="@string/sd_Cerrar"/>
+                android:text="@string/sn_Pagar"/>
 
 
 
@@ -239,9 +303,8 @@
                 android:textAlignment="center"
                 android:gravity="center_vertical"
                 android:text="@string/sd_Confirmar"/>
-
         </LinearLayout>
 
-
     </LinearLayout>
-</LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

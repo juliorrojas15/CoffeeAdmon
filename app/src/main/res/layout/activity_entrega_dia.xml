@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityEntregaDia">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:weightSum="10"
+            android:layout_margin="5dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textAlignment="center"
+                android:textColor="@color/AzulBorde"
+                android:textSize="34sp"
+                android:text="@string/sc_EntregaDía"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textColor="@color/Negro"
+                android:textSize="18sp"
+                android:text="@string/sn_Distribuidor"/>
+            <TextView
+                android:id="@+id/tvDistribuidorSeleccionado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_weight="1.5"
+                android:textAlignment="center"
+                android:textColor="@color/RojoCoffee"
+                android:textSize="24sp" />
+
+            <ListView
+                android:id="@+id/lvDistribuidores"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="6"
+                android:background="@drawable/lv_distribuidores"></ListView>
+
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+            <Button
+                android:id="@+id/bBorrarTodo"
+                style="@style/sty_BotonRojo"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:text="@string/sd_BorrarTodo"
+                android:textSize="18sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:orientation="horizontal"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.5"
+                    android:text="@string/sd_TituloPrd"
+                    android:textAlignment="center"
+                    android:textColor="@color/Negro"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.5"
+                    android:text="@string/sd_TituloEnt"
+                    android:textAlignment="center"
+                    android:textColor="@color/Negro" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.5"
+                    android:text="@string/sd_TituloDev"
+                    android:textAlignment="center"
+                    android:textColor="@color/Negro"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.5"
+                    android:text="@string/sd_TituloVen"
+                    android:textAlignment="center"
+                    android:textColor="@color/Negro"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="9.5"
+                android:orientation="horizontal">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:background="@color/RojoBorde">
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sty_TextoProductosDia"
+                                android:text="@string/sd_VasosPrevios"/>
+                            <TextView
+                                android:id="@+id/tvEntVasosPrevios"
+                                style="@style/sty_TextoProductosDia"
+                                android:textColor="@color/Negro"
+                                android:textSize="32sp"/>
+                            <TextView
+                                android:id="@+id/tvDevVasosPrevios"
+                                style="@style/sty_TextoProductosDia"
+                                android:textColor="@color/Negro"
+                                android:textSize="32sp"/>
+                            <TextView
+                                android:id="@+id/tvVentaVasosPrevios"
+                                style="@style/sty_TextoVentasDia"
+                                android:text="55"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sty_TextoProductosDia"
+                                android:text="@string/sd_VasosHoy"/>
+                            <Button
+                                android:id="@+id/bEntVasosHoy"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <Button
+                                android:id="@+id/bDevVasosHoy"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <TextView
+                                android:id="@+id/tvVentaVasosHoy"
+                                style="@style/sty_TextoVentasDia"
+                                android:text="55"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:background="@color/VerdeBorde">
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sty_TextoProductosDia"
+                                android:text="@string/sd_Aromatica"/>
+                            <Button
+                                android:id="@+id/bEntAromatica"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <Button
+                                android:id="@+id/bDevAromatica"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <TextView
+                                android:id="@+id/tvVentaAromatica"
+                                style="@style/sty_TextoVentasDia"
+                                android:text="55"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sty_TextoProductosDia"
+                                android:text="@string/sd_Instacrem"/>
+                            <Button
+                                android:id="@+id/bEntInstacrem"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <Button
+                                android:id="@+id/bDevInstacrem"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <TextView
+                                android:id="@+id/tvVentaInstacrem"
+                                style="@style/sty_TextoVentasDia"
+                                android:text="55"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:background="@color/EnviarBorde">
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sty_TextoProductosDia"
+                                android:text="@string/sd_Mantecada"/>
+                            <Button
+                                android:id="@+id/bEntMantecada"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <Button
+                                android:id="@+id/bDevMantecada"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <TextView
+                                android:id="@+id/tvVentaMantecada"
+                                style="@style/sty_TextoVentasDia"
+                                android:text="55"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sty_TextoProductosDia"
+                                android:text="@string/sd_Liberal"/>
+                            <Button
+                                android:id="@+id/bEntLiberal"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <Button
+                                android:id="@+id/bDevLiberal"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <TextView
+                                android:id="@+id/tvVentaLiberal"
+                                style="@style/sty_TextoVentasDia"
+                                android:text="55"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sty_TextoProductosDia"
+                                android:text="@string/sd_Almojabana"/>
+                            <Button
+                                android:id="@+id/bEntAlmojabana"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <Button
+                                android:id="@+id/bDevAlmojabana"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <TextView
+                                android:id="@+id/tvVentaAlmojabana"
+                                style="@style/sty_TextoVentasDia"
+                                android:text="55"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sty_TextoProductosDia"
+                                android:text="@string/sd_Arepa"/>
+                            <Button
+                                android:id="@+id/bEntArepa"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <Button
+                                android:id="@+id/bDevArepa"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <TextView
+                                android:id="@+id/tvVentaArepa"
+                                style="@style/sty_TextoVentasDia"
+                                android:text="55"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:background="@color/AzulBorde">
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sty_TextoProductosDia"
+                                android:text="@string/sd_Mustang"/>
+                            <Button
+                                android:id="@+id/bEntMustang"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <TextView
+                                android:id="@+id/tvDevMustang"
+                                style="@style/sty_TextoProductosDia"
+                                android:textColor="@color/Negro"/>
+                            <TextView
+                                android:id="@+id/tvVentaMustang"
+                                style="@style/sty_TextoVentasDia"
+                                android:text="55"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sty_TextoProductosDia"
+                                android:text="@string/sd_Lucky"/>
+                            <Button
+                                android:id="@+id/bEntLucky"
+                                style="@style/sty_BotonGrisEntDev"/>
+                            <TextView
+                                android:id="@+id/tvDevLucky"
+                                style="@style/sty_TextoProductosDia"
+                                android:textColor="@color/Negro"/>
+                            <TextView
+                                android:id="@+id/tvVentaLucky"
+                                style="@style/sty_TextoVentasDia"
+                                android:text="55"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </ScrollView>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:orientation="vertical"
+            android:background="@color/BeigeCoffee"
+            android:layout_margin="5dp"
+            android:weightSum="15">
+            <TextView
+                style="@style/sty_TextoDineroDia"
+                android:text="@string/sd_EntDineroPrevio"/>
+            <TextView
+                android:id="@+id/tvDineroPrevio"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:textColor="@color/Negro"/>
+            <TextView
+                style="@style/sty_TextoDineroDia"
+                android:text="@string/sd_EntDineroDia"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.3"
+                android:id="@+id/bDineroDia"
+                style="@style/sty_BotonGrisProductosDia"/>
+
+            <TextView
+                style="@style/sty_TextoDineroDia"
+                android:text="@string/sd_DineroMulta"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.3"
+                android:id="@+id/bDineroMulta"
+                style="@style/sty_BotonGrisProductosDia"/>
+
+            <TextView
+                style="@style/sty_TextoDineroDia"
+                android:text="@string/sd_ComisionAdicional"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.3"
+                android:id="@+id/bDineroComisionAdd"
+                style="@style/sty_BotonGrisProductosDia"/>
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/tvComisionTotal"
+                style="@style/sty_TextoTotalesDia"
+                android:text="Tz: 150"/>
+            <TextView
+                android:id="@+id/tvProducidoTotal"
+                style="@style/sty_TextoTotalesDia"
+                android:text="Tortas: 10"/>
+
+            <TextView
+                android:id="@+id/tvAbonadoTotal"
+                style="@style/sty_TextoTotalesDia"
+                android:text="Comisión: $35.150"/>
+            <TextView
+                android:id="@+id/tvDeudaTotal"
+                style="@style/sty_TextoTotalesDia"
+                android:text="Deuda: $30.150" />
+            <TextView
+                android:id="@+id/tvTazasTotal"
+                style="@style/sty_TextoTotalesDia"
+                android:text="Tazas:"/>
+            <TextView
+                android:id="@+id/tvTortasTotal"
+                style="@style/sty_TextoTotalesDia"
+                android:text="Tortas:"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:weightSum="10">
+            <GridLayout
+                android:id="@+id/glTeclado"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="6"
+                android:columnCount="4"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bTecla_7"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_7" />
+
+                <Button
+                    android:id="@+id/bTecla_8"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_8" />
+
+                <Button
+                    android:id="@+id/bTecla_9"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_9" />
+                <Button
+                    android:id="@+id/bTecla_10"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_10" />
+                <Button
+                    android:id="@+id/bTecla_4"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_4" />
+
+                <Button
+                    android:id="@+id/bTecla_5"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_5" />
+
+                <Button
+                    android:id="@+id/bTecla_6"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_6" />
+                <Button
+                    android:id="@+id/bTecla_20"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_20" />
+                <Button
+                    android:id="@+id/bTecla_1"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_1" />
+
+                <Button
+                    android:id="@+id/bTecla_2"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_2" />
+
+                <Button
+                    android:id="@+id/bTecla_3"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_3" />
+                <Button
+                    android:id="@+id/bTecla_25"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_25" />
+                <Button
+                    android:id="@+id/bTecla_0"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_0" />
+                <android.support.v4.widget.Space />
+                <Button
+                    android:id="@+id/bTecla_000"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_000" />
+                <Button
+                    android:id="@+id/bTecla_50"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_50" />
+
+            </GridLayout>
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+            <Button
+                android:id="@+id/bBorrarUno"
+                style="@style/sty_BotonAmarillo"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:text="@string/sd_BorrarUno"
+                android:textSize="18sp"/>
+
+
+            <Button
+                android:id="@+id/bTemporal"
+                style="@style/sty_BotonAzul"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:text="@string/sd_Temporal"/>
+
+
+            <Button
+                android:id="@+id/bCerrar"
+                style="@style/sty_BotonVerde"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:text="@string/sd_Cerrar"/>
+
+
+
+            <Button
+                android:id="@+id/bConfirmar"
+                style="@style/sty_BotonVerde"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:text="@string/sd_Confirmar"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

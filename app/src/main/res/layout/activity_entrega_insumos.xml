@@ -11,159 +11,171 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:gravity="center_vertical"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:weightSum="10">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:orientation="horizontal"
-            android:weightSum="10">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:orientation="vertical"
+            android:weightSum="10"
+            android:layout_margin="5dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                android:layout_weight="2.5"
+                android:textAlignment="center"
+                android:textColor="@color/AzulBorde"
+                android:textSize="50sp"
+                android:text="@string/sc_EntregaInsumos"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="bottom"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textColor="@color/Negro"
+                android:textSize="30sp"
+                android:text="@string/sn_Distribuidor"/>
+            <TextView
+                android:id="@+id/tvDistribuidorSeleccionado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_weight="1.5"
+                android:textAlignment="center"
+                android:textColor="@color/RojoCoffee"
+                android:textSize="34sp" />
 
             <ListView
                 android:id="@+id/lvDistribuidores"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="6"
-                android:background="@color/BeigeCoffee"></ListView>
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="5"
+                android:background="@drawable/lv_distribuidores"></ListView>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="4"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="bottom"
-                    android:layout_weight="4"
-                    android:textAlignment="center"
-                    android:textColor="@color/Negro"
-                    android:textSize="20sp"
-                    android:text="@string/se_InsumosPara"/>
-                <TextView
-                    android:id="@+id/tvDistribuidorSeleccionado"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="top"
-                    android:layout_weight="4"
-                    android:textAlignment="center"
-                    android:textColor="@color/RojoCoffee"
-                    android:textSize="30sp" />
 
-            </LinearLayout>
         </LinearLayout>
 
 
-        <GridLayout
-            android:id="@+id/glInsumos"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="5"
-            android:columnCount="4"
-            android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5">
+            <GridLayout
+                android:id="@+id/glInsumos"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:columnCount="4"
+                android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/bAromática"
-                style="@style/sty_Insumos"
-                android:contentDescription="@string/se_AromáticaPanela"
-                android:src="@mipmap/vidasweet" />
+                <ImageButton
+                    android:id="@+id/bAromática"
+                    style="@style/sty_Insumos"
+                    android:contentDescription="@string/se_AromáticaPanela"
+                    android:src="@mipmap/vidasweet" />
 
-            <TextView
-                android:id="@+id/tvAromatica"
-                style="@style/sty_TextoInsumosEntrega" />
+                <TextView
+                    android:id="@+id/tvAromatica"
+                    style="@style/sty_TextoInsumosEntrega" />
 
-            <ImageButton
-                android:id="@+id/bInstacrem"
-                style="@style/sty_Insumos"
-                android:contentDescription="@string/se_Instacrem"
-                android:src="@mipmap/instacrem" />
+                <ImageButton
+                    android:id="@+id/bInstacrem"
+                    style="@style/sty_Insumos"
+                    android:contentDescription="@string/se_Instacrem"
+                    android:src="@mipmap/instacrem" />
 
-            <TextView
-                android:id="@+id/tvInstacrem"
-                style="@style/sty_TextoInsumosEntrega" />
+                <TextView
+                    android:id="@+id/tvInstacrem"
+                    style="@style/sty_TextoInsumosEntrega" />
 
-            <ImageButton
-                android:id="@+id/bMantecada"
-                style="@style/sty_Insumos"
-                android:contentDescription="@string/se_Mantecada"
-                android:src="@mipmap/mantecada" />
+                <ImageButton
+                    android:id="@+id/bMantecada"
+                    style="@style/sty_Insumos"
+                    android:contentDescription="@string/se_Mantecada"
+                    android:src="@mipmap/mantecada" />
 
-            <TextView
-                android:id="@+id/tvMantecada"
-                style="@style/sty_TextoInsumosEntrega" />
+                <TextView
+                    android:id="@+id/tvMantecada"
+                    style="@style/sty_TextoInsumosEntrega" />
 
-            <ImageButton
-                android:id="@+id/bLiberal"
-                style="@style/sty_Insumos"
-                android:contentDescription="@string/se_Liberal"
-                android:src="@mipmap/liberal" />
+                <ImageButton
+                    android:id="@+id/bLiberal"
+                    style="@style/sty_Insumos"
+                    android:contentDescription="@string/se_Liberal"
+                    android:src="@mipmap/liberal" />
 
-            <TextView
-                android:id="@+id/tvLiberal"
-                style="@style/sty_TextoInsumosEntrega" />
+                <TextView
+                    android:id="@+id/tvLiberal"
+                    style="@style/sty_TextoInsumosEntrega" />
 
-            <ImageButton
-                android:id="@+id/bAlmojabana"
-                style="@style/sty_Insumos"
-                android:contentDescription="@string/se_Almojabana"
-                android:src="@mipmap/almojabana" />
+                <ImageButton
+                    android:id="@+id/bAlmojabana"
+                    style="@style/sty_Insumos"
+                    android:contentDescription="@string/se_Almojabana"
+                    android:src="@mipmap/almojabana" />
 
-            <TextView
-                android:id="@+id/tvAlmojabana"
-                style="@style/sty_TextoInsumosEntrega" />
+                <TextView
+                    android:id="@+id/tvAlmojabana"
+                    style="@style/sty_TextoInsumosEntrega" />
 
-            <ImageButton
-                android:id="@+id/bArepa"
-                style="@style/sty_Insumos"
-                android:contentDescription="@string/se_Arepa"
-                android:src="@mipmap/arepa" />
+                <ImageButton
+                    android:id="@+id/bArepa"
+                    style="@style/sty_Insumos"
+                    android:contentDescription="@string/se_Arepa"
+                    android:src="@mipmap/arepa" />
 
-            <TextView
-                android:id="@+id/tvArepa"
-                style="@style/sty_TextoInsumosEntrega" />
+                <TextView
+                    android:id="@+id/tvArepa"
+                    style="@style/sty_TextoInsumosEntrega" />
 
-            <ImageButton
-                android:id="@+id/bMustang"
-                style="@style/sty_Insumos"
-                android:contentDescription="@string/se_Mustang"
-                android:src="@mipmap/mustang" />
+                <ImageButton
+                    android:id="@+id/bMustang"
+                    style="@style/sty_Insumos"
+                    android:contentDescription="@string/se_Mustang"
+                    android:src="@mipmap/mustang" />
 
-            <TextView
-                android:id="@+id/tvMustang"
-                style="@style/sty_TextoInsumosEntrega" />
+                <TextView
+                    android:id="@+id/tvMustang"
+                    style="@style/sty_TextoInsumosEntrega" />
 
-            <ImageButton
-                android:id="@+id/bLucky"
-                style="@style/sty_Insumos"
-                android:contentDescription="@string/se_Lucky"
-                android:src="@mipmap/lucky" />
+                <ImageButton
+                    android:id="@+id/bLucky"
+                    style="@style/sty_Insumos"
+                    android:contentDescription="@string/se_Lucky"
+                    android:src="@mipmap/lucky" />
 
-            <TextView
-                android:id="@+id/tvLucky"
-                style="@style/sty_TextoInsumosEntrega" />
+                <TextView
+                    android:id="@+id/tvLucky"
+                    style="@style/sty_TextoInsumosEntrega" />
 
-        </GridLayout>
+            </GridLayout>
+        </LinearLayout>
+
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
             android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:weightSum="10">
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:weightSum="10"
+            android:layout_margin="5dp">
 
             <GridLayout
                 android:id="@+id/glTeclado"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="5"
+                android:layout_weight="6"
                 android:columnCount="3"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginLeft="40dp">
 
                 <Button
                     android:id="@+id/bTecla_7"
@@ -214,46 +226,37 @@
                     android:id="@+id/bTecla_0"
                     style="@style/sty_BotonTeclado"
                     android:text="@string/st_Tecla_0" />
+                <android.support.v4.widget.Space />
+                <Button
+                    android:id="@+id/bTecla_000"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_000" />
 
             </GridLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="5"
-                android:gravity="center"
-                android:orientation="vertical">
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/bBorrar"
+                style="@style/sty_BotonAmarillo"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:text="@string/sd_BorrarTodo"/>
 
-                <Button
-                    android:id="@+id/bBorrar"
-                    style="@style/sty_BotonAmarillo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:gravity="top"
-                    android:text="@string/sd_Borrar"/>
+            <ImageButton
+                android:id="@+id/bEnviar"
+                style="@style/sty_Insumos"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:layout_gravity="center"
+                android:contentDescription="@string/se_Lucky"
+                android:src="@mipmap/whatsapp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:gravity="bottom"
-                    android:layout_weight="1"
-                    android:text="@string/se_Enviar"
-                    android:textAlignment="center"
-                    android:textColor="@color/Negro"
-                    android:textSize="24sp" />
-
-                <ImageButton
-                    android:id="@+id/bEnviar"
-                    style="@style/sty_Insumos"
-                    android:layout_height="0dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="2"
-                    android:contentDescription="@string/se_Lucky"
-                    android:src="@mipmap/whatsapp" />
-
-            </LinearLayout>
         </LinearLayout>
 
 

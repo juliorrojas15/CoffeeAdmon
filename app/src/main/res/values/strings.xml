@@ -21,9 +21,36 @@
     <string name="st_Entrar">ENTRAR</string>
 
     <!-- ##################################################### PÁGINA PRINCIPAL #######-->
+    <string name="sp_Informe">INFORME</string>
     <string name="sp_Administración">ADMINISTRACIÓN</string>
     <string name="sp_CierreActividades">CIERRES</string>
     <string name="sp_EntregaInsumos">ENTREGAR INSUMOS</string>
+    <string name="sp_Nomina">NOMINA</string>
+    <string name="sp_Caja">MOVIMIENTO DE CAJA</string>
+    <string name="sp_Facturas">REGISTRO DE FACTURAS</string>
+
+    <!-- ##################################################### PÁGINA ADMINISTRACIÓN #######-->
+    <string name="si_Mes">MES</string>
+    <string name="si_Año">AÑO</string>
+    <string name="si_Facturado">FACTURADO:</string>
+    <string name="si_Recogido">DINERO RECOGIDO:</string>
+    <string name="si_Comisiones">COMISIONES:</string>
+    <string name="si_TazasTotal">TAZAS TOTAL:</string>
+    <string name="si_TortasTotal">TORTAS TOTAL:</string>
+    <string name="si_Tintos">TINTOS:</string>
+    <string name="si_Aromáticas">AROMÁTICAS:</string>
+    <string name="si_Instacrem">INSTACREM:</string>
+    <string name="si_Mantecada">MANTECADA:</string>
+    <string name="si_Liberal">LIBERAL:</string>
+    <string name="si_Almojabana">ALMOJABANA:</string>
+    <string name="si_Arepa">AREPA:</string>
+    <string name="si_Mustang">MUSTANG:</string>
+    <string name="si_Lucky">LUCKY:</string>
+    <string name="si_Dinero">$ 12,345,678</string>
+
+
+
+
 
     <!-- ##################################################### PÁGINA ADMINISTRACIÓN #######-->
     <string name="sa_Distribuidores">DISTRIBUIDORES</string>
@@ -83,12 +110,13 @@
     <!-- ##################################################### CIERRES #######-->
     <string name="sc_EntregaDía">MEDIO DÍA</string>
     <string name="sc_EntregaNoche">NOCHE</string>
+    <string name="sc_EntregaInsumos">INSUMOS</string>
     <string name="sc_EntregaAdicional">DINERO ADICIONAL</string>
 
-    <!-- ##################################################### REGISTRO NOCHE #######-->
-    <string name="sn_Tazas">TAZAS</string>
-    <string name="sn_EntregaTazas">ENT.:</string>
-    <string name="sn_DevuelveTazas">DEV.:</string>
+
+    <!-- ##################################################### REGISTRO NOCHE Y NOMINA#######-->
+    <string name="sn_EntregaTazas">ENTREGA DE TAZAS</string>
+    <string name="sn_DevuelveTazas">DEVOLUCIÓN DE TAZAS</string>
 
     <string name="sn_DineroEntregado">ENTREGA DE DINERO</string>
     <string name="sn_Borrar">BORRAR</string>
@@ -96,32 +124,105 @@
     <string name="sn_Enviar">ENVIAR Y GUARDAR</string>
 
 
+    <string name="sn_Nomina">NOMINA</string>
+    <string name="sn_Fecha">FECHA</string>
+    <string name="sn_Deuda">DEUDA</string>
+    <string name="sn_Tazas">TAZAS</string>
+    <string name="sn_Comision">COMISIÓN</string>
+
+    <string name="sn_SubTotal">SUB TOTAL</string>
+    <string name="sn_Prestamos">- PRESTAMOS</string>
+    <string name="sn_CoffeeExpress">COFFEE EXPRESS</string>
+    <string name="sn_Descuentos">DESCUENTOS</string>
+    <string name="sn_Bonificaciones">BONIFICACIONES</string>
+
+    <string name="sn_TotalPago">TOTAL A PAGAR</string>
+    <string name="sn_PromedioTz">TZ. PROMEDIO</string>
+    <string name="sn_Pagar">PAGAR</string>
+
+
     <!-- ##################################################### REGISTRO MEDIO DIA #######-->
-    <string name="sd_TituloEnt">ENT</string>
-    <string name="sd_TituloDev">DEV</string>
+
+    <string name="sd_TituloPrd">PRD.</string>
+    <string name="sd_TituloEnt">ENT.</string>
+    <string name="sd_TituloDev">DEV.</string>
     <string name="sd_TituloVen">VEN</string>
 
     <string name="sd_Distribuidor">Distribuidor</string>
     <string name="sd_AbrirPendiente">Abrir Pendiente</string>
 
-    <string name="sd_Vasos1">Vasos 1</string>
-    <string name="sd_Vasos2">Vasos 2</string>
-    <string name="sd_Vasos3">Vasos 3</string>
-    <string name="sd_ArPanela">A.Panela</string>
-    <string name="sd_ArHaibel">A.Haibel</string>
-    <string name="sd_Instacrem">Instacrem</string>
-    <string name="sd_Mantecada">Mante.</string>
-    <string name="sd_Liberal">Libe.</string>
-    <string name="sd_Almojabana">Almo.</string>
-    <string name="sd_Arepa">Arepa</string>
+    <string name="sd_VasosPrevios">VASOS PREVIOS</string>
+    <string name="sd_VasosHoy">VASOS    HOY</string>
+    <string name="sd_Aromatica">AROMATICA</string>
+    <string name="sd_Instacrem">INSTACREM</string>
+    <string name="sd_Mantecada">MANTECADA</string>
+    <string name="sd_Liberal">LIBERAL</string>
+    <string name="sd_Almojabana">ALMOJABANA</string>
+    <string name="sd_Arepa">AREPA</string>
+    <string name="sd_Mustang">MUSTANG</string>
+    <string name="sd_Lucky">LUCKY</string>
+
+    <string name="sd_EntDineroPrevio">YA ENTREGÓ:</string>
+    <string name="sd_EntDineroDia">ESTA ENTREGANDO:</string>
+    <string name="sd_DineroMulta">DEUDA ADICIONAL:</string>
+    <string name="sd_ComisionAdicional">COMISIÓN ADICIONAL:</string>
 
     <string name="sd_EntragaNoche">E.Noche</string>
     <string name="sd_EntregaDía">E.Día</string>
     <string name="sd_EntregaAdicional">E.Adic.</string>
 
-    <string name="sd_Borrar">BORRAR</string>
+    <string name="sd_BorrarTodo">BORRAR TODO</string>
+    <string name="sd_BorrarUno">BORRAR UNO</string>
     <string name="sd_Temporal">TEMPORAL</string>
-    <string name="sd_Cierre">CERRAR</string>
+    <string name="sd_Cerrar">CERRAR</string>
+    <string name="sd_Confirmar">CONFIRMAR</string>
 
+    <!-- #####################################################  MOVIMIENTOS DE CAJA #######-->
+    <string name="smc_TipoDeMovimiento">TIPO DE MOVIMIENTO</string>
+    <string name="smc_Entra">ENTRA $</string>
+    <string name="smc_Sale">SALE $</string>
+    <string name="smc_Categoria">CATEGORÍA</string>
+    <string name="smc_SubCategoria">SUB CATEGORÍA</string>
+    <string name="smc_DescripcionAdicional">DESCRIPCIÓN ADICIONAL</string>
+    <string name="smc_Cantidad">Cantidad</string>
+    <string name="smc_ValorUnitario">Valor UND</string>
+    <string name="smc_Total">TOTAL</string>
+
+    <string name="smc_TituloHora">HORA</string>
+    <string name="smc_TituloMovimiento">MOVIMIENTO</string>
+    <string name="smc_TituloTotal">TOTAL</string>
+    <string name="smc_TituloFiltrar">FILTRAR POR FECHA</string>
+
+    <string name="smc_FiltrarDia">Dia</string>
+    <string name="smc_FiltrarMes">Mes</string>
+    <string name="smc_FiltrarAño">Año</string>
+    <string name="smc_Filtrar">FILTRAR</string>
+    <string name="smc_Guardar">GUARDAR</string>
+    <string name="smc_Contar">CONTAR</string>
+
+
+    <!-- #####################################################  CONTEO DE DINERO #######-->
+    <string name="sc_0">$ 000000</string>
+    <string name="sc_50_N">$ 50 N</string>
+    <string name="sc_50_V">$ 50 V</string>
+    <string name="sc_100_N">$ 100 N</string>
+    <string name="sc_100_V">$ 100 V</string>
+    <string name="sc_200_N">$ 200 N</string>
+    <string name="sc_200_V">$ 200 V</string>
+    <string name="sc_500">$ 500</string>
+
+    <string name="sc_1000">$ 1000</string>
+
+    <string name="sc_2000">$ 2.000</string>
+    <string name="sc_5000">$ 5.000</string>
+    <string name="sc_10000">$ 10.000</string>
+    <string name="sc_20000">$ 20.000</string>
+    <string name="sc_50000">$ 50.000</string>
+    <string name="sc_100000">$ 100.000</string>
+
+    <string name="sc_Volver">VOLVER</string>
+    <string name="sc_DineroContado">DINERO TOTAL</string>
+    <string name="sc_DineroSistema">DINERO SISTEMA</string>
+    <string name="sc_DineroDiferencia">DIFERENCIA</string>
 
 </resources>

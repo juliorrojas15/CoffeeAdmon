@@ -271,7 +271,7 @@ public class ActivityEntregaInsumos extends AppCompatActivity implements View.On
         String sPath = "Usuarios/juliorrojas15@gmail.com/Tiendas/Cra.21/Distribuidores/"+sDistribuidorSeleccionado;
         DocumentReference bd_Datos=FirebaseFirestore.getInstance().document(sPath);
         //CollectionReference bd_Datos= FirebaseFirestore.getInstance().document(sPath);
-        final int[][] iOrden = {new int[17]};
+        final int[][] iOrden = {new int[18]};
         bd_Datos.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -305,7 +305,8 @@ public class ActivityEntregaInsumos extends AppCompatActivity implements View.On
                                 Integer.parseInt(listSet.get(iOrden[0][13]).toString()),
                                 Integer.parseInt(listSet.get(iOrden[0][14]).toString()),
                                 Integer.parseInt(listSet.get(iOrden[0][15]).toString()),
-                                listSet.get(iOrden[0][16]).toString());
+                                listSet.get(iOrden[0][16]).toString(),
+                                listSet.get(iOrden[0][17]).toString());
                         fGuardar(listItemsDistribuidor);
                     } else {
                         Log.d("Distribuidor", "No such document");
@@ -341,6 +342,7 @@ public class ActivityEntregaInsumos extends AppCompatActivity implements View.On
                 case "Dev Tazas":iOrden[14]=i;break;
                 case "Ent Dinero":iOrden[15]=i;break;
                 case "Cierre Abierto":iOrden[16]=i;break;
+                case "Ultimo Cierre":iOrden[17]=i;break;
             }
         }
         return iOrden;
@@ -358,8 +360,8 @@ public class ActivityEntregaInsumos extends AppCompatActivity implements View.On
                 .document("Usuarios/juliorrojas15@gmail.com/Tiendas/Cra.21/Distribuidores/"+sDistribuidorSeleccionado);
 
         Map<String,Object> bd_GuardarEntregados=new HashMap<String, Object>();
-        bd_GuardarEntregados.put("Aromaticas",iProductosIngresados[0]+listDatos.getiAromaticas());
-        bd_GuardarEntregados.put("Instacrem",iProductosIngresados[1]+listDatos.getiInstacrem());
+        bd_GuardarEntregados.put("Aromaticas",(iProductosIngresados[0]*25)+listDatos.getiAromaticas());
+        bd_GuardarEntregados.put("Instacrem",(iProductosIngresados[1]*10)+listDatos.getiInstacrem());
         bd_GuardarEntregados.put("Mantecada",iProductosIngresados[2]+listDatos.getiMantecada());
         bd_GuardarEntregados.put("Liberal",iProductosIngresados[3]+listDatos.getiLiberal());
         bd_GuardarEntregados.put("Almojabana",iProductosIngresados[4]+listDatos.getiAlmojabana());

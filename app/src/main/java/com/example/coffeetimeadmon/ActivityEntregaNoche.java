@@ -29,7 +29,9 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -49,8 +51,8 @@ public class ActivityEntregaNoche extends AppCompatActivity implements View.OnCl
     TextView otvDistribuidorSeleccionado;
     Button obTecla_0,obTecla_1,obTecla_2,obTecla_3,obTecla_4,obTecla_5,obTecla_6,obTecla_7,
             obTecla_8,obTecla_9,obTecla_000;
-    Button obEntregaTazas,obDevuelveTazas,obDinero,obBorrar;
-    ImageButton obEnviar;
+    Button obEntregaTazas,obDevuelveTazas,obDinero,obBorrar,obCerrar,obConfirmar;;
+
 
     //#########################################################################################     Variables Globales
     ArrayList alDistribuidores=new ArrayList<>();
@@ -73,7 +75,8 @@ public class ActivityEntregaNoche extends AppCompatActivity implements View.OnCl
         obDevuelveTazas=(Button)findViewById(R.id.bDevuelveTazas);
         obDinero=(Button)findViewById(R.id.bDinero);
         obBorrar=(Button)findViewById(R.id.bBorrar);
-        obEnviar=(ImageButton)findViewById(R.id.bEnviar);
+        obCerrar=(Button)findViewById(R.id.bCerrar);
+        obConfirmar=(Button)findViewById(R.id.bConfirmar);
 
         obTecla_0=(Button)findViewById(R.id.bTecla_0);obTecla_1=(Button)findViewById(R.id.bTecla_1);
         obTecla_2=(Button)findViewById(R.id.bTecla_2);obTecla_3=(Button)findViewById(R.id.bTecla_3);
@@ -92,14 +95,15 @@ public class ActivityEntregaNoche extends AppCompatActivity implements View.OnCl
         fActualizar_LV_Distribuidores();
         obEntregaTazas.setText("100");
         iEntregaTazas=100;
+        obConfirmar.setVisibility(View.INVISIBLE);
         //##################################################################################         Acciones de botones
         obEntregaTazas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sTeclaAccionada="EntregaTazas";
                 obEntregaTazas.setBackgroundColor(GREEN);
-                obDevuelveTazas.setBackgroundColor(GRAY);
-                obDinero.setBackgroundColor(GRAY);
+                obDevuelveTazas.setBackgroundResource(R.drawable.boton_gris);
+                obDinero.setBackgroundResource(R.drawable.boton_gris);
                 sNumero="";
                 iNumero=0;
             }
@@ -108,9 +112,9 @@ public class ActivityEntregaNoche extends AppCompatActivity implements View.OnCl
             @Override
             public void onClick(View v) {
                 sTeclaAccionada="DevuelveTazas";
-                obEntregaTazas.setBackgroundColor(GRAY);
+                obEntregaTazas.setBackgroundResource(R.drawable.boton_gris);
                 obDevuelveTazas.setBackgroundColor(GREEN);
-                obDinero.setBackgroundColor(GRAY);
+                obDinero.setBackgroundResource(R.drawable.boton_gris);
                 sNumero="";
                 iNumero=0;
             }
@@ -119,8 +123,8 @@ public class ActivityEntregaNoche extends AppCompatActivity implements View.OnCl
             @Override
             public void onClick(View v) {
                 sTeclaAccionada="Dinero";
-                obEntregaTazas.setBackgroundColor(GRAY);
-                obDevuelveTazas.setBackgroundColor(GRAY);
+                obEntregaTazas.setBackgroundResource(R.drawable.boton_gris);
+                obDevuelveTazas.setBackgroundResource(R.drawable.boton_gris);
                 obDinero.setBackgroundColor(GREEN);
                 sNumero="";
                 iNumero=0;
@@ -131,16 +135,25 @@ public class ActivityEntregaNoche extends AppCompatActivity implements View.OnCl
             public void onClick(View v) {
                 otvDistribuidorSeleccionado.setText("");
                 sDistribuidorSeleccionado="";
-                obEntregaTazas.setText("");
+                obEntregaTazas.setText("100");
                 obDevuelveTazas.setText("");
                 obDinero.setText("");
                 sNumero="";
                 iNumero=0;
-                iEntregaTazas=0;iDevuelveTazas=0;iDinero=0;
+                iEntregaTazas=100;iDevuelveTazas=0;iDinero=0;
+                obCerrar.setVisibility(View.VISIBLE);
+                obConfirmar.setVisibility(View.INVISIBLE);
             }
         });
 
-        obEnviar.setOnClickListener(new View.OnClickListener() {
+        obCerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                obConfirmar.setVisibility(View.VISIBLE);
+                obCerrar.setVisibility(View.INVISIBLE);
+            }
+        });
+        obConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fVerificarCondiciones();
@@ -152,8 +165,8 @@ public class ActivityEntregaNoche extends AppCompatActivity implements View.OnCl
         olvDistribuidores.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Object oDistribuidorSeleccionado= olvDistribuidores.getItemAtPosition(position);
-                sDistribuidorSeleccionado=oDistribuidorSeleccionado.toString();
+                TextView otvNombre=(TextView) view.findViewById(R.id.tv_Distribuidor_lv);
+                sDistribuidorSeleccionado=otvNombre.getText().toString();
 
                 otvDistribuidorSeleccionado.setText(sDistribuidorSeleccionado.toUpperCase());
             }
@@ -162,29 +175,63 @@ public class ActivityEntregaNoche extends AppCompatActivity implements View.OnCl
     //#########################################################################################################################################
     //#########################################################################################
     //#########################################################################################################################################
+    Distribuidor_Entidad listItemsDistribuidor;
+    Distribuidor_Adaptador_Entregas myAdapterDistribuidor;
     void fActualizar_LV_Distribuidores(){
+
+        final ArrayList alDatosCalendario=fCalendario();
+        final String sNombreRegistro_Hoy=alDatosCalendario.get(0)+"-"+
+                alDatosCalendario.get(1)+"-"+
+                alDatosCalendario.get(2);
+
         String sPath = "Usuarios/juliorrojas15@gmail.com/Tiendas/Cra.21/Distribuidores";
         CollectionReference bd_Datos= FirebaseFirestore.getInstance().collection(sPath);
-
+        final int[][] iOrden = {new int[18]};
         bd_Datos.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
+
+                    int iRevisarKeyz=0;
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        String sNombreDoc = document.getId();
-                        alDistribuidores.add(sNombreDoc);
+                        ArrayList<String> aKeys=new ArrayList<String>(document.getData().keySet());
+                        Collection collection=document.getData().values();
+
+                        if (iRevisarKeyz==0) {
+                            iOrden[0] = fKeysDistribuidor(aKeys);
+                            iRevisarKeyz=1;
+                        }
+                        final List listSet=new ArrayList<>(collection);
+                        listItemsDistribuidor=new Distribuidor_Entidad(
+                                listSet.get(iOrden[0][0]).toString(),
+                                Long.parseLong(listSet.get(iOrden[0][1]).toString()),
+                                Integer.parseInt(listSet.get(iOrden[0][2]).toString()),
+                                Integer.parseInt(listSet.get(iOrden[0][3]).toString()),
+                                Integer.parseInt(listSet.get(iOrden[0][4]).toString()),
+                                Integer.parseInt(listSet.get(iOrden[0][5]).toString()),
+                                Integer.parseInt(listSet.get(iOrden[0][6]).toString()),
+                                Integer.parseInt(listSet.get(iOrden[0][7]).toString()),
+                                Integer.parseInt(listSet.get(iOrden[0][8]).toString()),
+                                Integer.parseInt(listSet.get(iOrden[0][9]).toString()),
+                                Integer.parseInt(listSet.get(iOrden[0][10]).toString()),
+                                Integer.parseInt(listSet.get(iOrden[0][11]).toString()),
+                                Integer.parseInt(listSet.get(iOrden[0][12]).toString()),
+                                Integer.parseInt(listSet.get(iOrden[0][13]).toString()),
+                                Integer.parseInt(listSet.get(iOrden[0][14]).toString()),
+                                Integer.parseInt(listSet.get(iOrden[0][15]).toString()),
+                                listSet.get(iOrden[0][16]).toString(),
+                                listSet.get(iOrden[0][17]).toString());
+
+                        alDistribuidores.add(listItemsDistribuidor);
                     }
-                    ArrayAdapter<String> myAdapter=new ArrayAdapter<String>(
-                            ActivityEntregaNoche.this,android.R.layout.simple_list_item_1,
-                            android.R.id.text1,alDistribuidores);
-                    olvDistribuidores.setAdapter(myAdapter);
 
                 } else {
                     Log.d("Actividad", "Error adquiriendo documentos: ", task.getException());
                 }
+                myAdapterDistribuidor = new Distribuidor_Adaptador_Entregas(ActivityEntregaNoche.this, alDistribuidores,sNombreRegistro_Hoy,"NOCHE");
+                olvDistribuidores.setAdapter(myAdapterDistribuidor);
             }
         });
-
 
     }
 
@@ -260,7 +307,7 @@ public class ActivityEntregaNoche extends AppCompatActivity implements View.OnCl
     void fAdquirirEntregados(){
         String sPath = "Usuarios/juliorrojas15@gmail.com/Tiendas/Cra.21/Distribuidores/"+sDistribuidorSeleccionado;
         DocumentReference bd_Datos=FirebaseFirestore.getInstance().document(sPath);
-        final int[][] iOrden = {new int[17]};
+        final int[][] iOrden = {new int[18]};
         bd_Datos.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -294,8 +341,19 @@ public class ActivityEntregaNoche extends AppCompatActivity implements View.OnCl
                                 Integer.parseInt(listSet.get(iOrden[0][13]).toString()),
                                 Integer.parseInt(listSet.get(iOrden[0][14]).toString()),
                                 Integer.parseInt(listSet.get(iOrden[0][15]).toString()),
-                                listSet.get(iOrden[0][16]).toString());
-                        fGuardar(listItemsDistribuidor);
+                                listSet.get(iOrden[0][16]).toString(),
+                                listSet.get(iOrden[0][17]).toString());
+
+                        if (listItemsDistribuidor.getsCierreAbierto().equals("")){
+                            fGuardar(listItemsDistribuidor);
+                        }
+                        else{
+                            Toast.makeText(ActivityEntregaNoche.this,
+                                    "Este distribuidor ya tiene un registro abierto: "+
+                                            listItemsDistribuidor.getsCierreAbierto() +
+                                            ", Cierra ese registro primero...",Toast.LENGTH_LONG).show();
+                        }
+
                     } else {
                         Log.d("Distribuidor", "No such document");
                     }
@@ -330,7 +388,7 @@ public class ActivityEntregaNoche extends AppCompatActivity implements View.OnCl
                 case "Dev Tazas":iOrden[14]=i;break;
                 case "Ent Dinero":iOrden[15]=i;break;
                 case "Cierre Abierto":iOrden[16]=i;break;
-
+                case "Ultimo Cierre":iOrden[17]=i;break;
             }
         }
         return iOrden;
@@ -356,17 +414,11 @@ public class ActivityEntregaNoche extends AppCompatActivity implements View.OnCl
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(ActivityEntregaNoche.this,"Registro guardado satisfactoriamente",Toast.LENGTH_SHORT).show();
-                otvDistribuidorSeleccionado.setText("");
-                sDistribuidorSeleccionado="";
-                obEntregaTazas.setText("");
-                obDevuelveTazas.setText("");
-                obDinero.setText("");
-                sNumero="";
-                iNumero=0;
-                iEntregaTazas=0;iDevuelveTazas=0;iDinero=0;
-
+                fObtenerCuentas();
                 progressDialog.cancel();
                 fEnviarMensaje(listDatos);
+                alDistribuidores.clear();
+                fActualizar_LV_Distribuidores();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -379,6 +431,7 @@ public class ActivityEntregaNoche extends AppCompatActivity implements View.OnCl
     }
     void fEnviarMensaje(Distribuidor_Entidad listDatos){
 
+        final ArrayList alDatosCalendario=fCalendario();
         DecimalFormat decimalFormat = new DecimalFormat("#,##0");
         String imNumero;
         imNumero = decimalFormat.format(iDatosIngresados[2]);
@@ -387,14 +440,186 @@ public class ActivityEntregaNoche extends AppCompatActivity implements View.OnCl
         String[] sTextosWApp=new String[4];
         sTextosWApp[0]="Tz Ent: "+iDatosIngresados[0];
         sTextosWApp[1]=",  Tz Dev: "+iDatosIngresados[1];
-        sTextosWApp[2]="%0ATz Ven: "+(iDatosIngresados[0]-iDatosIngresados[0]);
-        sTextosWApp[3]="%0ADinero Ent: "+imNumero;
+        sTextosWApp[2]="%0ATz Ven: "+(iDatosIngresados[0]-iDatosIngresados[1]);
+        sTextosWApp[3]="%0ADinero Ent: $ "+imNumero;
 
-        String sMensaje="Hola " + listDatos.getsNombre() + ", Terminaste el turno con los siguientes datos:%0A"+
+        String sMensaje="Hola " + listDatos.getsNombre() + ", Terminaste el turno del "+
+                alDatosCalendario.get(6)+
+                " con los siguientes datos:%0A"+
                 sTextosWApp[0]+sTextosWApp[1]+sTextosWApp[2]+sTextosWApp[3];
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+lCelular +"&text="+sMensaje));
         startActivity(intent);
     }
+
+    // ############################################################################################  ACTUALIZAR CUENTAS
+    int iEfectivo=0,iBancos=0;
+    void fObtenerCuentas() {
+
+        //Adquirir información actual de cuentas
+        String sPath = "Usuarios/juliorrojas15@gmail.com/Tiendas/Cra.21/Cuentas/Cuentas";
+        DocumentReference bd_Datos = FirebaseFirestore.getInstance().document(sPath);
+        bd_Datos.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        ArrayList<String> aKeys = new ArrayList<String>(document.getData().keySet());
+                        ArrayList aValues = new ArrayList(document.getData().values());
+
+                        if (aKeys.get(0).equals("Efectivo")) {
+                            iEfectivo = Integer.parseInt(aValues.get(0).toString());
+                            iBancos = Integer.parseInt(aValues.get(1).toString());
+                        } else {
+                            iEfectivo = Integer.parseInt(aValues.get(1).toString());
+                            iBancos = Integer.parseInt(aValues.get(0).toString());
+                        }
+                        fGuardarCuentas(iEfectivo, iBancos);
+                    } else {
+                        Log.d("Distribuidor", "No such document");
+                    }
+                } else {
+                    Log.d("Actividad", "Error adquiriendo documentos: ", task.getException());
+                }
+            }
+        });
+    }
+    void fGuardarCuentas(int iEfectivo,int iBancos){
+        //Actualizar información de cuentas
+        String sPath = "Usuarios/juliorrojas15@gmail.com/Tiendas/Cra.21/Cuentas/Cuentas";
+        DocumentReference bd_NuevaCuenta = FirebaseFirestore.getInstance().document(sPath);
+
+        iEfectivo =iEfectivo+iDinero;
+
+        Map<String,Object> bd_GuardarCuenta=new HashMap<String, Object>();
+        bd_GuardarCuenta.put("Efectivo",iEfectivo);
+
+        bd_NuevaCuenta.update(bd_GuardarCuenta).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                fGuardarMovimiento();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(ActivityEntregaNoche.this,"Se presentaron fallas en el proceso",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    void fGuardarMovimiento(){
+
+        final ArrayList alDatosCalendario=fCalendario();
+        final String sMesColeccion=alDatosCalendario.get(0)+"-"+alDatosCalendario.get(4);
+        final String sFechaDocumento=alDatosCalendario.get(2)+"-"+alDatosCalendario.get(3);
+        final String sHoraDocumento=alDatosCalendario.get(8).toString();
+
+        //Mensaje
+        final ProgressDialog progressDialog=new ProgressDialog(ActivityEntregaNoche.this);
+        progressDialog.setMessage("Registrando Movimiento");
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
+
+        String sPath="Usuarios/juliorrojas15@gmail.com/Tiendas/Cra.21/Cuentas/Movimientos/"+
+                sMesColeccion+"/"+sFechaDocumento+"/Movimientos/"+sHoraDocumento;
+        //---------  Nuevo personal
+        DocumentReference bd_NuevoMovimiento = FirebaseFirestore.getInstance().document(sPath);
+
+        Map<String,Object> bd_GuardarPersonal=new HashMap<String, Object>();
+        bd_GuardarPersonal.put("Mes",sMesColeccion);
+        bd_GuardarPersonal.put("Fecha",sFechaDocumento);
+        bd_GuardarPersonal.put("Hora",sHoraDocumento);
+        bd_GuardarPersonal.put("Tipo de Movimiento","Entrada");
+        bd_GuardarPersonal.put("Categoria_1","Ent. por Distribuidor");
+        bd_GuardarPersonal.put("Categoria_2",sDistribuidorSeleccionado);
+        bd_GuardarPersonal.put("Descripción","Entrega de Noche");
+        bd_GuardarPersonal.put("Cantidad",1);
+        bd_GuardarPersonal.put("ValorUND",iDinero);
+        bd_GuardarPersonal.put("Total",iDinero);
+
+        bd_NuevoMovimiento.set(bd_GuardarPersonal).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(ActivityEntregaNoche.this,"Movimiento creado satisfactoriamente",Toast.LENGTH_SHORT).show();
+                otvDistribuidorSeleccionado.setText("");
+                sDistribuidorSeleccionado="";
+                obEntregaTazas.setText("100");
+                obDevuelveTazas.setText("");
+                obDinero.setText("");
+                sNumero="";
+                iNumero=0;
+                iEntregaTazas=100;iDevuelveTazas=0;iDinero=0;
+                obCerrar.setVisibility(View.VISIBLE);
+                obConfirmar.setVisibility(View.INVISIBLE);
+                progressDialog.cancel();
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(ActivityEntregaNoche.this,"Se presentaron fallas en el proceso",Toast.LENGTH_SHORT).show();
+                progressDialog.cancel();
+            }
+        });
+
+    }
+
+
+    // ############################################################################################  CALENDARIO
+    ArrayList fCalendario(){
+
+        ArrayList alDatosCalendario=new ArrayList();
+
+        Calendar Date=Calendar.getInstance();
+        int iAño= Date.get(Calendar.YEAR);
+        int iMes=Date.get(Calendar.MONTH)+1;
+        int iFecha=Date.get(Calendar.DAY_OF_MONTH);
+        int iDia=Date.get(Calendar.DAY_OF_WEEK);
+        String sDia="",sMes="";
+        switch (iDia){
+            case 1:sDia="Dom";break;
+            case 2:sDia="Lun";break;
+            case 3:sDia="Mar";break;
+            case 4:sDia="Mie";break;
+            case 5:sDia="Jue";break;
+            case 6:sDia="Vie";break;
+            case 7:sDia="Sab";break;
+        }
+        switch (iMes){
+            case 1:sMes="Ene";break;
+            case 2:sMes="Feb";break;
+            case 3:sMes="Mar";break;
+            case 4:sMes="Abr";break;
+            case 5:sMes="May";break;
+            case 6:sMes="Jun";break;
+            case 7:sMes="Jul";break;
+            case 8:sMes="Ago";break;
+            case 9:sMes="Sep";break;
+            case 10:sMes="Oct";break;
+            case 11:sMes="Nov";break;
+            case 12:sMes="Dic";break;
+        }
+        SimpleDateFormat sdf=new SimpleDateFormat("HH:mm");
+        SimpleDateFormat sdf1=new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat sdf2=new SimpleDateFormat("HHmmddssMMyy");
+        String sHora=sdf.format(Date.getTime());
+        String sHoraSeg=sdf1.format(Date.getTime());
+        String sTodo=sdf2.format(Date.getTime());
+        String sFecha=sDia +" "+ iFecha +" de "+ sMes+ " de " + iAño;
+
+        alDatosCalendario.add(iAño);
+        alDatosCalendario.add(iMes);
+        alDatosCalendario.add(iFecha);
+        alDatosCalendario.add(sDia);
+        alDatosCalendario.add(sMes);
+        alDatosCalendario.add(sHora);
+        alDatosCalendario.add(sFecha);
+        alDatosCalendario.add(sTodo);
+        alDatosCalendario.add(sHoraSeg);
+        return(alDatosCalendario);
+    }
+
+
+
  }

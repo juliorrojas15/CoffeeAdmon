@@ -8,11 +8,12 @@ public class Distribuidor_Entidad {
     int iTazas;
     int iAromaticas,iInstacrem,iMantecada,iLiberal,iAlmojabana,iArepa, iMustang,iLucky;
     int iEntTazas,iDevTazas,iEntDinero;
-    String sCierreAbierto;
+    String sCierreAbierto,sUltimoCierre;
 
     public Distribuidor_Entidad(String sNombre, long lCelular, int iAhorro, int iDeuda, int iTazas,
                                 int iAromaticas, int iInstacrem, int iMantecada, int iLiberal,
-                                int iAlmojabana, int iArepa, int iMustang, int iLucky,int iEntTazas,int iDevTazas,int iEntDinero,String sCierreAbierto) {
+                                int iAlmojabana, int iArepa, int iMustang, int iLucky,int iEntTazas,
+                                int iDevTazas,int iEntDinero,String sCierreAbierto,String sUltimoCierre) {
         this.sNombre = sNombre;
         this.lCelular = lCelular;
         this.iAhorro = iAhorro;
@@ -30,6 +31,7 @@ public class Distribuidor_Entidad {
         this.iDevTazas=iDevTazas;
         this.iEntDinero=iEntDinero;
         this.sCierreAbierto=sCierreAbierto;
+        this.sUltimoCierre=sUltimoCierre;
     }
 
     public String getsCierreAbierto() {
@@ -166,5 +168,13 @@ public class Distribuidor_Entidad {
 
     public void setiTazas(int iTazas) {
         this.iTazas = iTazas;
+    }
+
+    public String getsUltimoCierre() {
+        return sUltimoCierre;
+    }
+
+    public void setsUltimoCierre(String sUltimoCierre) {
+        this.sUltimoCierre = sUltimoCierre;
     }
 }

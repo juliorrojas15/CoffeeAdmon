@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityCaja">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <RadioGroup
+                android:id="@+id/rgTipoMovimiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RadioButton
+                    android:id="@+id/rbEntrada"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/smc_Entra"
+                    android:textSize="14sp"/>
+
+                <RadioButton
+                    android:id="@+id/rbSalida"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/smc_Sale"
+                    android:textSize="14sp"/>
+
+            </RadioGroup>
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bContar"
+                android:text="@string/smc_Contar"
+                android:textSize="18sp"
+                style="@style/sty_BotonVerde"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
+            <ListView
+                android:id="@+id/lvCategoria_1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="5"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/lv_distribuidores"
+                android:layout_margin="20dp">
+            </ListView>
+            <ListView
+                android:id="@+id/lvCategoria_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="5"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/lv_distribuidores"
+                android:layout_margin="20dp">
+            </ListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/etDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/lv_distribuidores"
+                android:layout_margin="10dp"
+                android:hint="@string/smc_DescripcionAdicional"
+                android:textSize="14sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:id="@+id/bCantidad"
+                        style="@style/sty_BotonGrisProductosDia"
+                        android:hint="@string/smc_Cantidad"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:id="@+id/bValorUND"
+                        style="@style/sty_BotonGrisProductosDia"
+                        android:hint="@string/smc_ValorUnitario"/>
+                    <TextView
+                        android:id="@+id/tvTotal"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"
+                        android:textSize="24sp"
+                        android:textAlignment="center"
+                        android:gravity="center_vertical"
+                        android:text="@string/smc_Total"
+                        android:textColor="@color/RojoBorde"/>
+                    <android.support.v4.widget.Space
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.2"/>
+
+                </LinearLayout>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:id="@+id/bGuardar"
+                    style="@style/sty_BotonVerde"
+                    android:text="@string/smc_Guardar"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"/>
+
+
+            <GridLayout
+                android:id="@+id/glTeclado"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="6"
+                android:columnCount="4"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bTecla_7"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_7" />
+
+                <Button
+                    android:id="@+id/bTecla_8"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_8" />
+
+                <Button
+                    android:id="@+id/bTecla_9"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_9" />
+                <Button
+                    android:id="@+id/bTecla_10"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_10" />
+                <Button
+                    android:id="@+id/bTecla_4"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_4" />
+
+                <Button
+                    android:id="@+id/bTecla_5"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_5" />
+
+                <Button
+                    android:id="@+id/bTecla_6"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_6" />
+                <Button
+                    android:id="@+id/bTecla_20"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_20" />
+                <Button
+                    android:id="@+id/bTecla_1"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_1" />
+
+                <Button
+                    android:id="@+id/bTecla_2"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_2" />
+
+                <Button
+                    android:id="@+id/bTecla_3"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_3" />
+                <Button
+                    android:id="@+id/bTecla_25"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_25" />
+                <Button
+                    android:id="@+id/bTecla_0"
+                    style="@style/sty_BotonTeclado"
+                    android:text="@string/st_Tecla_0" />
+                <android.support.v4.widget.Space />
+                <Button
+                    android:id="@+id/bTecla_000"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_000" />
+                <Button
+                    android:id="@+id/bTecla_50"
+                    style="@style/sty_BotonTecladoAdicional"
+                    android:text="@string/st_Tecla_50" />
+
+            </GridLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:orientation="horizontal"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="@string/smc_TituloHora"
+                    android:textAlignment="center"
+                    android:textColor="@color/Negro"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:text="@string/smc_TituloMovimiento"
+                    android:textAlignment="center"
+                    android:textColor="@color/Negro" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="@string/smc_TituloTotal"
+                    android:textAlignment="center"
+                    android:textColor="@color/Negro"/>
+
+
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/lvMovimientos"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="7"
+                android:background="@drawable/lv_distribuidores">
+
+            </ListView>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:textAlignment="center"
+                android:textColor="@color/Negro"
+                android:textSize="18sp"
+                android:text="@string/smc_TituloFiltrar"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bDia"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    style="@style/sty_BotonGris"
+                    android:textSize="18sp"
+                    android:hint="@string/smc_FiltrarDia"/>
+                <Button
+                    android:id="@+id/bMes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    style="@style/sty_BotonGris"
+                    android:textSize="18sp"
+                    android:hint="@string/smc_FiltrarMes"/>
+                <Button
+                    android:id="@+id/bAño"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    style="@style/sty_BotonGris"
+                    android:textSize="18sp"
+                    android:hint="@string/smc_FiltrarAño"/>
+
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/bFiltrar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/smc_Filtrar"
+                style="@style/sty_BotonAzul"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityInforme">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="50dp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/etMes"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                style="@style/sty_BotonGris"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:inputType="number"
+                android:hint="@string/smc_FiltrarMes"/>
+            <EditText
+                android:id="@+id/etAño"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                style="@style/sty_BotonGris"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:inputType="number"
+                android:hint="@string/smc_FiltrarAño"/>
+            <Button
+                android:id="@+id/bFiltrar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="@string/smc_Filtrar"
+                style="@style/sty_BotonAzul"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/sty_TextoTituloInforme"
+                android:text="@string/si_Facturado" />
+            <TextView
+                style="@style/sty_TextoTituloInforme"
+                android:text="@string/si_Recogido" />
+            <TextView
+                style="@style/sty_TextoTituloInforme"
+                android:text="@string/si_Comisiones" />
+            <TextView
+                style="@style/sty_TextoTituloInforme"
+                android:text="@string/si_TazasTotal" />
+            <TextView
+                style="@style/sty_TextoTituloInforme"
+                android:text="@string/si_TortasTotal" />
+            <TextView
+                style="@style/sty_TextoTituloInforme"
+                android:text="@string/si_Tintos" />
+            <TextView
+                style="@style/sty_TextoTituloInforme"
+                android:text="@string/si_Aromáticas" />
+            <TextView
+                style="@style/sty_TextoTituloInforme"
+                android:text="@string/si_Instacrem" />
+            <TextView
+                style="@style/sty_TextoTituloInforme"
+                android:text="@string/si_Mantecada" />
+            <TextView
+                style="@style/sty_TextoTituloInforme"
+                android:text="@string/si_Liberal" />
+            <TextView
+                style="@style/sty_TextoTituloInforme"
+                android:text="@string/si_Almojabana" />
+            <TextView
+                style="@style/sty_TextoTituloInforme"
+                android:text="@string/si_Arepa" />
+            <TextView
+                style="@style/sty_TextoTituloInforme"
+                android:text="@string/si_Mustang" />
+            <TextView
+                style="@style/sty_TextoTituloInforme"
+                android:text="@string/si_Lucky" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/sty_TextoValoresInforme"
+                android:id="@+id/tvFacturado" 
+                android:text="@string/si_Dinero"/>
+            <TextView
+                style="@style/sty_TextoValoresInforme"
+                android:id="@+id/tvRecogido" 
+                android:text="@string/si_Dinero"/>
+            <TextView
+                style="@style/sty_TextoValoresInforme"
+                android:id="@+id/tvComisiones" 
+                android:text="@string/si_Dinero"/>
+            <TextView
+                style="@style/sty_TextoValoresInforme"
+                android:id="@+id/tvTazasTotal"
+                android:text="@string/si_Dinero"/>
+            <TextView
+                style="@style/sty_TextoValoresInforme"
+                android:id="@+id/tvTortasTotal"
+                android:text="@string/si_Dinero"/>
+            <TextView
+                style="@style/sty_TextoValoresInforme"
+                android:id="@+id/tvTintos" 
+                android:text="@string/si_Dinero"/>
+            <TextView
+                style="@style/sty_TextoValoresInforme"
+                android:id="@+id/tvAromáticas" 
+                android:text="@string/si_Dinero"/>
+            <TextView
+                style="@style/sty_TextoValoresInforme"
+                android:id="@+id/tvInstacrem" 
+                android:text="@string/si_Dinero"/>
+            <TextView
+                style="@style/sty_TextoValoresInforme"
+                android:id="@+id/tvMantecada" 
+                android:text="@string/si_Dinero"/>
+            <TextView
+                style="@style/sty_TextoValoresInforme"
+                android:id="@+id/tvLiberal" 
+                android:text="@string/si_Dinero"/>
+            <TextView
+                style="@style/sty_TextoValoresInforme"
+                android:id="@+id/tvAlmojabana" 
+                android:text="@string/si_Dinero"/>
+            <TextView
+                style="@style/sty_TextoValoresInforme"
+                android:id="@+id/tvArepa" 
+                android:text="@string/si_Dinero"/>
+            <TextView
+                style="@style/sty_TextoValoresInforme"
+                android:id="@+id/tvMustang" 
+                android:text="@string/si_Dinero"/>
+            <TextView
+                style="@style/sty_TextoValoresInforme"
+                android:id="@+id/tvLucky" 
+                android:text="@string/si_Dinero"/>
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</LinearLayout>
